@@ -10,8 +10,8 @@ Resolución de la primera práctica de la asignatura Visión por Computador, en 
 
 ### Tabla de contenidos
 - [Tarea 1 - Tablero de ajedrez](#tarea-1---tablero-de-ajedrez)
-    - [De forma manual](#de-forma-manual)
-    - [Con inteligencia artificial](#con-inteligencia-artificial)
+    - [Resolución manual](#resolución-manual)
+    - [Resolución con inteligencia artificial](#resolución-con-inteligencia-artificial)
 - [Tarea 2 - Arte al estilo de Mondrian](#tarea-2---arte-al-estilo-de-mondrian)
 - [Tarea 3 - Detección de píxeles en vídeo](#tarea-3---detección-de-píxeles-en-vídeo)
 - [Tarea 4 - Pop Art al estilo de Warhol](#tarea-4---pop-art-al-estilo-de-warhol)
@@ -19,6 +19,14 @@ Resolución de la primera práctica de la asignatura Visión por Computador, en 
 - [Fuentes consultadas](#fuentes-consultadas)
 
 ### Tarea 1 - Tablero de ajedrez
+
+#### Resolución Manual
+
+#### Resolución con Inteligencia Artificial
+
+| Manual | Claude | ChatGPT | Gemini |
+|--|--|--|--|
+| ![Resolución Manual](./exercises/chess_manual.png) | ![Resolución Claude](./exercises/chess_claude.png) | ![Resolución ChatGPT](./exercises/chess_chatgpt.png) | ![Resolución Gemini](./exercises/chess_gemini.png) |
 
 ### Tarea 2 - Arte al estilo de Mondrian
 
@@ -65,7 +73,7 @@ Cada entrada del collage recibe el resultado de una llamada a `get_warhol_transf
 ### Fuentes consultadas
 #### Tarea 1
 - [Claude](https://claude.com/), [ChatGPT](https://chatgpt.com/), [Gemini](https://gemini.google.com/app)
-    - ***Prompt***: "Make a chessboard 800x800, in black and white, with only 1 color canal (grey scale). Make it with matplotlib and pyplot. Generate the image with plt.show. Return the necessary code."
+    - ***Prompt***: "Make a chessboard 800x800, in black and white, with only 1 color canal (grey scale). Make it with matplotlib and pyplot. Save the image with cv2.imwrite in exercises/\<filename>.png (assume the path exists) and plot it with plt.show. Return the necessary code."
     - ***Respuesta***: Código mostrado en el cuaderno.
 #### Tarea 2
 - [numpy.full() in Python](https://www.geeksforgeeks.org/python/numpy-full-python/)
