@@ -22,11 +22,31 @@ Resolución de la primera práctica de la asignatura Visión por Computador, en 
 
 #### Resolución Manual
 
+Se ha realizado una solución orientada a objetos, organizada en una clase `Chess` configurable. 
+<br></br>
+Se genera la imagen creando una matriz del tamaño final deseado (800x800px). Tras crearla, se recorren todas las casillas, determinando su color mediante paridad y pintándolas.
+
 #### Resolución con Inteligencia Artificial
 
+Todas las inteligencias artificiales mantienen el cálculo de color de cada celda mediante el uso de paridad (`(row + col) % 2`). No obstante, las soluciones generadas eliminan los bucles de Python, sustituyéndolos por operaciones vectorizadas de NumPy:
+- **Claude** utiliza `np.kron` para escalar un patrón 8x8 base a la resolución final, multiplicando con el producto de _Kronecker_.
+- **ChatGPT** usa `np.indices` para para obtener simultáneamente las coordenadas de todos los píxeles y el color de cada uno de ellos.
+- **Gemini** combina `np.tile`y `np.repeat` para replicar una matriz mínima de 2x2 hasta formar el tablero de 8x8 y multiplicar cada casilla hasta que mida 100x100 píxeles.
+
+Todas las soluciones generadas, al aprovechar la aceleración de operaciones vectoriales, tienen mejores tiempos de ejecución que la implementación manual:
+- **Manual**: 151 ms ± 17.2 ms per loop
+- **Claude**: 82 ms ± 9.21 ms per loop
+- **ChatGPT**: 131 ms ± 4.45 ms per loop
+- **Gemini**: 129 ms ± 10.2 ms per loop
+
+No obstante, esta mejora en rendimiento ha perjudicado la legibilidad y comprensión del código, incluyendo operaciones más específicas que requieren conocimientos avanzados en NumPy.
+
+Estas son las imágenes generadas por cada implementación:
 | Manual | Claude | ChatGPT | Gemini |
 |--|--|--|--|
 | ![Resolución Manual](./exercises/chess_manual.png) | ![Resolución Claude](./exercises/chess_claude.png) | ![Resolución ChatGPT](./exercises/chess_chatgpt.png) | ![Resolución Gemini](./exercises/chess_gemini.png) |
+
+<sub><em>*Nótese que Claude y Gemini han implementado el tablero en una orientación distinta, empezando por una casilla blanca en vez de negra.</em></sub>
 
 ### Tarea 2 - Arte al estilo de Mondrian
 
@@ -68,7 +88,11 @@ Cada entrada del collage recibe el resultado de una llamada a `get_warhol_transf
 
 ### Tarea Extra
 
+Haciendo uso de los conceptos aprendidos en las tareas 1-4, e inspirándonos en las demostraciones mostradas en teoría, hemos combinado en una tarea extra la detección de bordes, los eventos de ratón y la aplicación de máscaras.
 
+En la tarea realizada, se recoge una captura de vídeo y se aplica un filtro de detección de bordes sobre esta. Además, al deslizar el cursor por encima del vídeo, se muestra un círculo a través del cual se ve la imagen original (a color).
+
+![Ejemplo uso tarea extra](./doc/example_extra.png)
 
 ### Fuentes consultadas
 #### Tarea 1
@@ -88,3 +112,4 @@ Cada entrada del collage recibe el resultado de una llamada a `get_warhol_transf
 - [OpenCV merge failing to merge image channel](https://stackoverflow.com/questions/57839149/opencv-merge-failing-to-merge-image-channel)
 #### Tarea Extra
 - [Image Masking with OpenCV](https://pyimagesearch.com/2021/01/19/image-masking-with-opencv/)
+- [Contando Objetos Aplicando Detección de Bordes con Canny en Python OpenCV](https://omes-va.com/contando-objetos-aplicando-deteccion-de-bordes-con-canny-en-python-opencv/)
