@@ -72,7 +72,7 @@ Para encontrar los píxeles correspondientes, se ha hecho uso de la función `cv
 <br></br>
 Estas posiciones se utilizan como centro de dos círculos, dibujados para destacar los píxeles indicados. Se utiliza el color rojo para el píxel más claro, y el azul para el píxel más oscuro:
 
-![Ejemplo uso tarea 3](./doc/example_task3.png)
+![Ejemplo uso tarea 3](./exercises/example_task3.png)
 
 ### Tarea 4 - Pop Art al estilo de Warhol
 
@@ -84,7 +84,7 @@ La combinación de los planos se aleatoriza gracias a la función `get_warhol_tr
 <br></br>
 Cada entrada del collage recibe el resultado de una llamada a `get_warhol_transform`, pudiendo cambiar el filtro pulsando la tecla `r`.
 
-![Ejemplo uso tarea 4](./doc/example_task4.png)
+![Ejemplo uso tarea 4](./exercises/example_task4.png)
 
 ### Tarea Extra
 
@@ -92,7 +92,7 @@ Haciendo uso de los conceptos aprendidos en las tareas 1-4, e inspirándonos en 
 
 En la tarea realizada, se recoge una captura de vídeo y se aplica un filtro de detección de bordes sobre esta. Además, al deslizar el cursor por encima del vídeo, se muestra un círculo a través del cual se ve la imagen original (a color).
 
-![Ejemplo uso tarea extra](./doc/example_extra.png)
+![Ejemplo uso tarea extra](./exercises/example_extra.png)
 
 ### Fuentes consultadas
 #### Tarea 1
