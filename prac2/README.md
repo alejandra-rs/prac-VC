@@ -1,115 +1,128 @@
-# Práctica 1 - Visión por Computador
-## Marcial Galván - Alejandra Rodríguez
+# Práctica 2 - Visión por Computador
+## [Marcial Galván](https://github.com/Jose-Marcial-GF) - [Alejandra Rodríguez](https://github.com/alejandra-rs)
 
-Resolución de la primera práctica de la asignatura Visión por Computador, en la que se busca aprender sobre:
-- Representación de imágenes con distinto número de canales (grises, color)
-- Creación de imágenes de distintos tamaños
-- Acceso y modificación de los valores de los píxeles de una imagen
-- Dibujo de primitivas básicas sobre una imagen
-- Acceder a una imagen de disco, a los fotogramas de un vídeo o a la captura de una cámara
+Resolución de la segunda práctica de la asignatura Visión por Computador, en la que se busca aprender sobre:
+- Detección de bordes, utilizando los métodos de Canny y Sobel
+- Umbralizado de imágenes con Sobel
+- Procesamiento de imágenes, mediante sustracción de fotogramas y separación de modelo y fondo
+
+> ![NOTE]
+> Para las tareas 1 y 2, se toma como referencia la siguiente imagen de un mandril, estándar en *benchmarks* de procesamiento de imagen:
+> ![Mandril](./exercises/mandril.jpg)
 
 ### Tabla de contenidos
-- [Tarea 1 - Tablero de ajedrez](#tarea-1---tablero-de-ajedrez)
-    - [Resolución manual](#resolución-manual)
-    - [Resolución con inteligencia artificial](#resolución-con-inteligencia-artificial)
-- [Tarea 2 - Arte al estilo de Mondrian](#tarea-2---arte-al-estilo-de-mondrian)
-- [Tarea 3 - Detección de píxeles en vídeo](#tarea-3---detección-de-píxeles-en-vídeo)
-- [Tarea 4 - Pop Art al estilo de Warhol](#tarea-4---pop-art-al-estilo-de-warhol)
-- [Tarea Extra](#tarea-extra)
+- [Tarea 1 - Bordes en Canny](#tarea-1---bordes-en-canny)
+- [Tarea 2 - Comparativa entre Canny y Sobel umbralizado](#tarea-2---comparativa-entre-canny-y-sobel-umbralizado)
+- [Tarea 3 - Demostraciones con procesamiento de imagen](#tarea-3---demostraciones-con-procesamiento-de-imagen)
 - [Fuentes consultadas](#fuentes-consultadas)
 
-### Tarea 1 - Tablero de ajedrez
+### Tarea 1 - Bordes en Canny
 
-#### Resolución Manual
-
-Se ha realizado una solución orientada a objetos, organizada en una clase `Chess` configurable. 
+El objetivo de esta tarea es destacar las filas de la imagen con mayor número de bordes detectados.
 <br></br>
-Se genera la imagen creando una matriz del tamaño final deseado (800x800px). Tras crearla, se recorren todas las casillas, determinando su color mediante paridad y pintándolas.
-
-#### Resolución con Inteligencia Artificial
-
-Todas las inteligencias artificiales mantienen el cálculo de color de cada celda mediante el uso de paridad (`(row + col) % 2`). No obstante, las soluciones generadas eliminan los bucles de Python, sustituyéndolos por operaciones vectorizadas de NumPy:
-- **Claude** utiliza `np.kron` para escalar un patrón 8x8 base a la resolución final, multiplicando con el producto de _Kronecker_.
-- **ChatGPT** usa `np.indices` para para obtener simultáneamente las coordenadas de todos los píxeles y el color de cada uno de ellos.
-- **Gemini** combina `np.tile`y `np.repeat` para replicar una matriz mínima de 2x2 hasta formar el tablero de 8x8 y multiplicar cada casilla hasta que mida 100x100 píxeles.
-
-Todas las soluciones generadas, al aprovechar la aceleración de operaciones vectoriales, tienen mejores tiempos de ejecución que la implementación manual:
-- **Manual**: 151 ms ± 17.2 ms per loop
-- **Claude**: 82 ms ± 9.21 ms per loop
-- **ChatGPT**: 131 ms ± 4.45 ms per loop
-- **Gemini**: 129 ms ± 10.2 ms per loop
-
-No obstante, esta mejora en rendimiento ha perjudicado la legibilidad y comprensión del código, incluyendo operaciones más específicas que requieren conocimientos avanzados en NumPy.
-
-Estas son las imágenes generadas por cada implementación:
-| Manual | Claude | ChatGPT | Gemini |
-|--|--|--|--|
-| ![Resolución Manual](./exercises/chess_manual.png) | ![Resolución Claude](./exercises/chess_claude.png) | ![Resolución ChatGPT](./exercises/chess_chatgpt.png) | ![Resolución Gemini](./exercises/chess_gemini.png) |
-
-<sub><em>*Nótese que Claude y Gemini han implementado el tablero en una orientación distinta, empezando por una casilla blanca en vez de negra.</em></sub>
-
-### Tarea 2 - Arte al estilo de Mondrian
-
-El objetivo de esta tarea es la familiarización con las funciones de dibujo de OpenCV, concretamente `cv2.line` y `cv2.rectangle`. Con ellas, se debe imitar el estilo de Mondrian, generando una obra con líneas y rectángulos de colores primarios.
+Para ello, se aplica Canny sobre la imagen del mandril, y se realiza el recuento de píxeles blancos (bordes) por fila mediante `cv2.reduce`. El resultado se normaliza, obteniendo para cada fila el porcentaje de píxeles que corresponden a un borde.
 <br></br>
-Para ello, primero se ha resuelto la tarea de forma _naïve_, pintando las figuras una a una, para dominar el uso de estas funciones. Se ha recreado a través de ellas el ejemplo proporcionado en el enunciado:
+A partir de este recuento se calculan:
+- **`max_idx`**: el índice de la fila con mayor recuento de píxeles blancos.
+- **`max90_idx`**: los índices de las filas cuyo recuento iguala o supera el 90% del recuento máximo.
 
-![Descubriendo a Mondrian](https://www3.gobiernodecanarias.org/medusa/ecoescuela/sa/files/formidable/6/mondrian-1504681_960_720.png)
+Estas filas se resaltan sobre la imagen dibujando líneas: en rojo, la fila con recuento el máximo; y en amarillo, las filas que superan el 90% del máximo. Asimismo, se muestra junto a la imagen se muestra también el recuento de bordes en cada fila.
 
-Este es el resultado obtenido:
+![Recuento de bordes por fila Canny](./exercises/rows-canny.png)
+<sub>*Recuento de bordes por fila - Canny*</sub>
 
-![Imitación Descubriendo a Mondrian](./exercises/mondrian_naive.png)
+Se observa que las filas con mayor textura (por ejemplo, en la parte superior de la cabeza) producen más bordes y, por tanto, más píxeles de color blanco. Contrariamente a las zonas más homogéneas, como la parte inferior de la imagen, que generan un menor número de bordes.
 
-A continuación, a modo de reto, se ha implementado la función `paint_mondrian`, que permite generar composiciones mondrianas aleatoriamente. Este es un ejemplo de obra generada a través de esta función:
+### Tarea 2 - Comparativa entre Canny y Sobel umbralizado
 
-![Mondrian Aleatorio](./exercises/mondrian_aleatorio.png)
-
-### Tarea 3 - Detección de píxeles en vídeo
-
-En esta tarea se recibe la entrada de la cámara, y se debe procesar para detectar el píxel más claro y el más oscuro en cada fotograma.
+En esta tarea se aplican distintos niveles de umbralizado a la imagen de Sobel, convertida a 8 bits. A partir de todas las imágenes generadas se observa el conteo de filas y columnas (al igual que en la [tarea 1](#tarea-1---bordes-en-canny)), comparándolos con los obtenidos sobre la imagen de Canny.
 <br></br>
-Para encontrar los píxeles correspondientes, se ha hecho uso de la función `cv2.minMaxLoc`. Dos de los parámetros de salida de esta función (`min_loc`, `max_loc`), indican las coordenadas del píxel más claro y el más oscuro de la imagen. 
+Para obtener la imagen de Sobel, se suaviza primero la imagen con un filtro gaussiano, y se combina el resultado de aplicar Sobel (`cv2.Sobel`) en horizontal y vertical. El resultado se convierte a 8 bits usando `cv2.convertScaleAbs`.
 <br></br>
-Estas posiciones se utilizan como centro de dos círculos, dibujados para destacar los píxeles indicados. Se utiliza el color rojo para el píxel más claro, y el azul para el píxel más oscuro:
+Para estudiar el impacto del umbral, se ha calculado, para cada valor de umbral entre 0 y 255, el número de filas y columnas que alcanzan el 90% del recuento máximo:
 
-![Ejemplo uso tarea 3](./exercises/example_task3.png)
+![Comparativa según umbral](./exercises/threshold-comparison.png)
+<sub>*Efectos en el cambio del umbral en Sobel*</sub>
 
-### Tarea 4 - Pop Art al estilo de Warhol
-
-En esta tarea se realiza una creación warholiana, jugando con los valores de los distintos planos de color.
+Se aprecia que, al aumentar el umbral, el número de filas y columnas destacadas disminuye rápidamente. Esto se debe a que el umbral solo considera blancos los píxeles que superan su valor, por lo que umbrales más altos conservan únicamente los bordes más intensos.
 <br></br>
-La composición muestra la entrada de la cámara un total de 9 veces, en un collage de 3x3. Cada uno de los vídeos utiliza una combinación de planos distinta, generando el efecto Pop Art.
+Este efecto también puede observarse gráficamente, destacando las filas y columnas que alcanzan el 90% del máximo para Canny y para Sobel con umbrales de 5, 50 y 150:
+
+![Filas y columnas destacadas según umbral](./exercises/mandril-thresholds.png)
+<sub>*Representación gráfica del efecto del cambio en el umbral*</sub>
+
+Además, se ha buscado el umbral de Sobel que iguala a Canny en número de filas y columnas que alcanzan `0.9 × recuento[max_idx]`. Con este umbral, se comparan visualmente ambos resultados, mostrando también la diferencia absoluta (`cv2.absdiff`) entre ellos:
+
+![Comparativa Canny y Sobel](./exercises/mandril-threshold-comparison.png)
+<sub>*Comparativa Canny-Sobel a igualdad de filas/columnas que alcanzan `0.9 × recuento[max_idx]`*</sub>
+
+Al observar la gran diferencia de procesamiento de bordes entre Canny y Sobel, se ha buscado qué valor de umbral de Sobel minimiza esta diferencia:
+
+![Diferencia Mínima Canny-Sobel](./exercises/mandril-min-diff.png)
+<sub>*Umbral que minimiza la diferencia Canny-Sobel*</sub>
+
+Aun usando el umbral que minimiza la diferencia, la imagen obtenida por `cv2.absdiff` sigue manteniendo una gran cantidad de píxeles blancos, permitiendo incluso reconocer al mandril. Pocos píxeles de borde coinciden entre los dos métodos, lo que confirma la disparidad en el procesamiento de las imágenes.
+
+### Tarea 3 - Demostraciones con procesamiento de imagen
+
+En esta tarea se proponen varias demostraciones que combinan las técnicas de procesamiento de imagen estudiadas. Para realizarlas, se ha tomado inspiración de los vídeos vistos en clase ([My little piece of privacy](https://www.niklasroy.com/project/88/my-little-piece-of-privacy), [Messa di voce](https://www.youtube.com/watch?feature=shared&v=GfoqiyB1ndE) y [Virtual air guitar](https://www.youtube.com/watch?feature=shared&v=FIAmyoEpV5c)).
 <br></br>
-La combinación de los planos se aleatoriza gracias a la función `get_warhol_transform`. Esta función genera un conjunto de planos RGB, eligiendo aleatoriamente por cada uno de ellos entre 15 posibilidades. Por tanto, esta función permite un total de `15^3 = 3375` filtros Pop Art distintos.
+Como primer ejemplo se ha implementado un cambio de fondo sobre la entrada de la cámara. Para ello, se utiliza un sustractor de fondo (`cv2.createBackgroundSubtractorMOG2`), que genera en cada fotograma una máscara con los objetos en movimiento en los fotogramas anteriores.
 <br></br>
-Cada entrada del collage recibe el resultado de una llamada a `get_warhol_transform`, pudiendo cambiar el filtro pulsando la tecla `r`.
+Jugando con las operaciones de máscaras, se puede imitar a Homero Simpson desvaneciéndose en un arbusto:
 
-![Ejemplo uso tarea 4](./exercises/example_task4.png)
+[![Homer Simpson Arbusto](./exercises/homer-simpson.gif)](https://tenor.com/view/homer-simpson-bush-escape-im-out-gif-10058041)
 
-### Tarea Extra
+![Homero Simpson Demo](./exercises/demo-bush.gif)
 
-Haciendo uso de los conceptos aprendidos en las tareas 1-4, e inspirándonos en las demostraciones mostradas en teoría, hemos combinado en una tarea extra la detección de bordes, los eventos de ratón y la aplicación de máscaras.
+O simular que se está sobrevolando una ciudad:
 
-En la tarea realizada, se recoge una captura de vídeo y se aplica un filtro de detección de bordes sobre esta. Además, al deslizar el cursor por encima del vídeo, se muestra un círculo a través del cual se ve la imagen original (a color).
+![Sobrevolar Ciudad Demo](./exercises/demo-city.gif)
 
-![Ejemplo uso tarea extra](./exercises/example_extra.png)
+Si, adicionalmente, utilizamos sustracción de fotogramas, podemos imitar [*La creación de Adán*](https://es.wikipedia.org/wiki/La_creaci%C3%B3n_de_Ad%C3%A1n). 
+
+[![La creación de Adán](./exercises/la-creacion-de-adan.jpg)](https://www.culturagenial.com/es/cuadro-la-creacion-de-adan-de-miguel-angel/)
+
+Para ello, se realizan dos copias del modelo extraído (una normal y otra rotada 180º), para simular que la persona y su reflejo se tienden la mano.
+<br><br>
+La sustracción de fotogramas permite resaltar el movimiento, envolviendo las manos en un halo de color.
+
+![La creación de Adán Demo](./exercises/demo-creacion.gif)
 
 ### Fuentes consultadas
 #### Tarea 1
-- [Claude](https://claude.com/), [ChatGPT](https://chatgpt.com/), [Gemini](https://gemini.google.com/app)
-    - ***Prompt***: "Make a chessboard 800x800, in black and white, with only 1 color canal (grey scale). Make it with matplotlib and pyplot. Save the image with cv2.imwrite in exercises/\<filename>.png (assume the path exists) and plot it with plt.show. Return the necessary code."
-    - ***Respuesta***: Código mostrado en el cuaderno.
+- [Documentación de OpenCV](https://docs.opencv.org/4.13.0/d2/de8/group__core__array.html)
+
+
+- [Uso de `argmax()`](https://stackoverflow.com/questions/5469286/how-to-get-the-index-of-a-maximum-element-in-a-numpy-array-along-one-axis
+)
+
+- [Matplotlib plotting](https://www.w3schools.com/python/matplotlib_plotting.asp)
+
+- [Matplotlib line](https://www.w3schools.com/python/matplotlib_line.asp)
+
+- [Uso de `cv2.addWeighted()`](https://stackoverflow.com/questions/69432439/how-to-add-transparency-to-a-line-with-opencv-python)
+
+- [Slicing and Basic using Numpy Operations](https://youtu.be/VXU4LSAQDSc)
 #### Tarea 2
-- [numpy.full() in Python](https://www.geeksforgeeks.org/python/numpy-full-python/)
+- [Image Thresholding using OpenCV](https://opencv.org/image-thresholding-using-opencv/)
+
+- [Showing Points in a Plot in Python Matplotlib](https://www.tutorialspoint.com/article/showing-points-coordinate-in-a-plot-in-python-matplotlib)
+
+- [Matplotlib - Subplots Axes and Figures](https://matplotlib.org/stable/gallery/subplots_axes_and_figures/index.html )
+
+- [Matplotlib Plotting](https://www.w3schools.com/python/matplotlib_plotting.asp)
+
+- [Matplotlib Line](https://www.w3schools.com/python/matplotlib_line.asp)
 
 #### Tarea 3
-- [Finding the Brightest Spot in an Image using Python and OpenCV](https://pyimagesearch.com/2014/09/29/finding-brightest-spot-image-using-python-opencv/)
-- [OpenCV ReadTheDocs - MinMaxLoc](https://opencv-laboratory.readthedocs.io/en/latest/nodes/core/minMaxLoc.html)
-- [cv2.circle() method](https://www.geeksforgeeks.org/python/python-opencv-cv2-circle-method/)
 
-#### Tarea 4
-- [How to Create Pop Art Photo Effects with Photoshop Actions](https://elements.envato.com/learn/how-to-create-pop-art-photo-effects-with-photoshop-actions?v=1) (análisis previo para detectar efectos a realizar sobre la imagen)
-- [OpenCV merge failing to merge image channel](https://stackoverflow.com/questions/57839149/opencv-merge-failing-to-merge-image-channel)
-#### Tarea Extra
-- [Image Masking with OpenCV](https://pyimagesearch.com/2021/01/19/image-masking-with-opencv/)
-- [Contando Objetos Aplicando Detección de Bordes con Canny en Python OpenCV](https://omes-va.com/contando-objetos-aplicando-deteccion-de-bordes-con-canny-en-python-opencv/)
+- [Bitwise Operators](https://omes-va.com/operadores-bitwise/)
+
+- [City Background - GIF](https://gifer.com/en/WBVi)
+
+- [Load gif images with Python + OpenCV](https://www.linuxtut.com/en/a917c24509edfb48a828/)
+
+- *Herramientas de IA para generar los fondos utilizados en la tarea*:
+    - [Arbusto Homero Simpson](https://share.gemini.google/DvgGIu0OTG3d)
+    - [La Creación de Adán](https://share.gemini.google/7501aBQC2Nv9) 

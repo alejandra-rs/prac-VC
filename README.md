@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.ulpgc.es/">
-    <img src="https://www.ulpgc.es/sites/default/files/ArchivosULPGC/identidad-corporativa/NuevoLogo/eii_hc_0.png" alt="Logo ULPGC" height="80">
+    <img src="./eii-ulpgc.png" alt="Logo ULPGC" height="80">
   </a>
 </p>
 
@@ -30,14 +30,14 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
 
 ### Progreso General
 
-<progress value="3" max="14" style="width: 100%; height: 20px;"></progress>
-**21% completado** (1,5/7 prácticas)
+<progress value="4" max="14" style="width: 100%; height: 20px;"></progress>
+**29% completado** (2/7 prácticas)
 
 
 | Práctica | Temática | Estado | Enlace |
 |:-|:-|:-|:-|
 | **Práctica 1** | | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver práctica 1](./prac1) |
-| **Práctica 2** | | ![En Progreso](https://img.shields.io/badge/Estado-En_Progreso-yellow?style=flat-square) | [Ver Práctica 2](./prac2) |
+| **Práctica 2** | | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 2](./prac2) |
 | **Práctica 3** | | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
 | **Práctica 4** | | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
 | **Práctica 5** | | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
@@ -51,20 +51,20 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
     <td align="center">
       <a href="https://github.com/alejandra-rs">
         <img src="https://github.com/alejandra-rs.png" width="100px;" alt="Alejandra Rodríguez"/><br />
-      </a>
         <sub><b>Alejandra Rodríguez - Autora</b></sub>
+      </a>
     </td>
     <td align="center">
       <a href="https://github.com/Jose-Marcial-GF">
         <img src="https://github.com/Jose-Marcial-GF.png" width="100px;" alt="Marcial Galván"/><br />
-      </a>
         <sub><b>Marcial Galván - Autor</b></sub>
+      </a>
     </td>
     <td align="center">
       <a href="https://github.com/otsedom">
         <img src="https://github.com/otsedom.png" width="100px;" alt="Modesto Castrillón"/><br />
-      </a>
         <sub><b>Modesto Castrillón - Docente</b></sub>
+      </a>
     </td>
   </tr>
 </table>
