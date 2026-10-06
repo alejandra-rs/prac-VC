@@ -6,7 +6,7 @@ Resolución de la segunda práctica de la asignatura Visión por Computador, en 
 - Umbralizado de imágenes con Sobel
 - Procesamiento de imágenes, mediante sustracción de fotogramas y separación de modelo y fondo
 
-> ![NOTE]
+> [!NOTE]
 > Para las tareas 1 y 2, se toma como referencia la siguiente imagen de un mandril, estándar en *benchmarks* de procesamiento de imagen:
 > ![Mandril](./exercises/mandril.jpg)
 
