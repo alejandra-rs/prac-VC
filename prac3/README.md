@@ -1,6 +1,9 @@
 # Práctica 3 - Visión por Computador
 ## [Marcial Galván](https://github.com/Jose-Marcial-GF) - [Alejandra Rodríguez](https://github.com/alejandra-rs)
 
+> [!NOTE]
+> Sobre el _environment_ de prácticas anteriores, se debe instalar seaborn, sklearn y pandas.
+
 Resolución de la tercera práctica de la asignatura Visión por Computador, en la que se busca aprender sobre:
 - Detección de formas con distintos métodos, como la transformada de Hough y la detección de contornos.
 - La segmentación y caracterización de objetos a partir de su forma y su apariencia.
@@ -161,7 +164,7 @@ Las reglas obtienen el mejor resultado en la imagen de _test_, aunque son las qu
 
 ### Limitaciones
 
-- **Cambio de dispositivo:** las imágenes de entrenamiento son fotos de cámara y la de _test_ es un escáner, con otra resolución, iluminación y tonalidad. No hay variedad de imágenes en el entrenamiento, por lo que las heurísticas son más frágiles.
+- **Cambio de dispositivo:** la diferencia de dispositivo entre las imágenes de entrenamiento y las de _test_ impide encontrar umbrales precisos para ambos tipos de imágenes. Es por esto que las heurísticas son más frágiles.
 - **Partículas claras:** los fragmentos blancos o translúcidos son casi del mismo tono que el papel, y algunos no se detectan (17 partículas no detectadas en _test_).
 - **Dependencia de la semilla:** el _data augmentation_ es aleatorio, por lo que con otra semilla los umbrales y los resultados podrían cambiar ligeramente.
 
@@ -187,7 +190,7 @@ Las reglas obtienen el mejor resultado en la imagen de _test_, aunque son las qu
 - [Contour Detection using OpenCV (Python/C++) - LearnOpenCV](https://learnopencv.com/contour-detection-using-opencv-python-c/#runtime-comparison)
 - [Compactness measure - Wikipedia](https://en.wikipedia.org/wiki/Compactness_measure)
 - [Convex hull - Wikipedia](https://en.wikipedia.org/wiki/Convex_hull)
-- [Artículo 8976153 - IEEE Xplore](https://ieeexplore.ieee.org/document/8976153)
+- [Artículo SMACC](https://ieeexplore.ieee.org/document/8976153)
 - [How to use OpenCV for matching shapes and contours - CodingTechRoom](https://codingtechroom.com/question/how-to-use-opencv-matching-shapes-contours)
 - [How to match image shapes in OpenCV Python - Tutorialspoint](http://tutorialspoint.com/article/how-to-match-image-shapes-in-opencv-python)
 
@@ -199,4 +202,4 @@ Las reglas obtienen el mejor resultado en la imagen de _test_, aunque son las qu
 - [Drawing Functions in OpenCV - OpenCV](https://docs.opencv.org/4.13.0/dc/da5/tutorial_py_drawing_functions.html)
 - [pandas.DataFrame - pandas](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
 
-_Se usó Claude (Anthropic) como asistente para: discutir enfoques de segmentación y clasificación, explicar conceptos (espacio Lab, IoU, aumento de datos, *balanced accuracy*), revisar y simplificar el código, detectar errores (p. ej., ancho y alto intercambiados en el filtro de bordes) y ejecutar los experimentos de ablación recogidos en [`ablations_plastics.ipynb`](ablations_plastics.ipynb). Las decisiones de diseño se discutieron y validaron con experimentos antes de incorporarlas._
+_Uso de inteligencia artificial: se ha usado Claude para agilizar la evaluación de distintos algoritmos y optimizar el pipeline final._
