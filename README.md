@@ -33,15 +33,15 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
 <div align="center">
   <img src="https://api.barbuilder.dev/percentage/29?color=4c71ff" alt="Progress">
 
-  **29% completado** (2/7 prácticas)
+  **43% completado** (3/7 prácticas)
 
   <br>
 
   | Práctica | Temática | Estado | Enlace |
   |:-|:-|:-|:-|
-  | **Práctica 1** | | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver práctica 1](./prac1) |
+  | **Práctica 1** | | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 1](./prac1) |
   | **Práctica 2** | | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 2](./prac2) |
-  | **Práctica 3** | | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
+  | **Práctica 3** | | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 3](./prac3) |
   | **Práctica 4** | | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
   | **Práctica 5** | | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
   | **Práctica 6** | | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
