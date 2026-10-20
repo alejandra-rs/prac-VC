@@ -42,7 +42,7 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
   | **Práctica 1** | Representación de imágenes | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 1](./prac1) |
   | **Práctica 2** | Procesamiento de imágenes | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 2](./prac2) |
   | **Práctica 3** | Detección, segmentación, caracterización | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 3](./prac3) |
-  | **Práctica 4** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
+  | **Práctica 4** | Detección, segmentación, caracterización con aprendizaje profundo | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | [Ver Práctica 4](./prac4) |
   | **Práctica 5** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
   | **Práctica 6** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
   | **Práctica 7** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
