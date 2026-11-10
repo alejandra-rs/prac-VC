@@ -31,9 +31,9 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
 ### Progreso General
 
 <div align="center">
-  <img src="https://api.barbuilder.dev/percentage/29?color=4c71ff" alt="Progress">
+  <img src="https://api.barbuilder.dev/percentage/57?color=4c71ff" alt="Progress">
 
-  **43% completado** (3/7 prácticas)
+  **57% completado** (4/7 prácticas)
 
   <br>
 
@@ -42,7 +42,7 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
   | **Práctica 1** | Representación de imágenes | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 1](./prac1) |
   | **Práctica 2** | Procesamiento de imágenes | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 2](./prac2) |
   | **Práctica 3** | Detección, segmentación, caracterización | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 3](./prac3) |
-  | **Práctica 4** | Detección, segmentación, caracterización con aprendizaje profundo | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | [Ver Práctica 4](./prac4) |
+  | **Práctica 4** | Detección, y lectura de caracteres con aprendizaje profundo | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 4](./prac4) |
   | **Práctica 5** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
   | **Práctica 6** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
   | **Práctica 7** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
@@ -70,5 +70,12 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
         <sub><b>Modesto Castrillón - Docente</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/jisalascaceres">
+        <img src="https://github.com/jisalascaceres.png" width="100px;" alt="José Salas"/><br />
+        <sub><b>José Salas - Docente</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
+

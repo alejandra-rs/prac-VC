@@ -2,7 +2,6 @@ import math
 
 import cv2
 import numpy as np
-from scipy.signal import find_peaks
 
 WORK_WIDTH = 640
 PLATE_KINDS = {"wide": {"ratio": (2.318, 5.909), "rows": 1, "chars": (4, 10)},
