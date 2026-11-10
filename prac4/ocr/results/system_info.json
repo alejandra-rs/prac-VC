@@ -1,0 +1,28 @@
+{
+ "os": "Windows-10-10.0.26200-SP0",
+ "cpu": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+ "cpu_cores": 8,
+ "ram_gb": 34.0,
+ "python": "3.11.18",
+ "gpu": "NVIDIA GeForce RTX 5080",
+ "gpu_driver": "610.88",
+ "cuda": "13.0",
+ "tesseract": "5.5.3.20260724",
+ "ollama": "ollama version is 0.30.10",
+ "models": {
+  "paddleocr": "PP-OCRv5_server_rec",
+  "glm-ocr": "glm-ocr:bf16",
+  "smolvlm2": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+  "qwen3-vl-8b": "qwen3-vl:8b-instruct-q8_0"
+ },
+ "packages": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "paddlepaddle-gpu": "3.4.0",
+  "paddlepaddle": null,
+  "paddleocr": "3.7.0",
+  "pytesseract": "0.3.13",
+  "ollama": "0.6.3",
+  "opencv-python": "4.10.0.84"
+ }
+}

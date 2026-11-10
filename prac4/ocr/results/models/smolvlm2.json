@@ -1,0 +1,18 @@
+{
+ "model": "smolvlm2",
+ "n_plates": 3196,
+ "n_illegible": 1285,
+ "accuracy": 0.7734668335419274,
+ "cer": 0.10460434173669467,
+ "format_valid": 0.859511889862328,
+ "invented_rate": 0.049805447470817124,
+ "latency_mean_ms": 234.04751658334075,
+ "latency_std_ms": 52.808875778957784,
+ "latency_median_ms": 227.8156999964267,
+ "latency_p95_ms": 342.3733249946963,
+ "latency_min_ms": 121.46840000059456,
+ "latency_max_ms": 480.58460000902414,
+ "plates_per_s": 4.272636661982761,
+ "load_s": 7.560564399987925,
+ "peak_vram_mb": 5316
+}

@@ -1,0 +1,18 @@
+{
+ "model": "paddleocr",
+ "n_plates": 3196,
+ "n_illegible": 1285,
+ "accuracy": 0.781602002503129,
+ "cer": 0.11646068001668752,
+ "format_valid": 0.8169586983729662,
+ "invented_rate": 0.042801556420233464,
+ "latency_mean_ms": 7.6517690550748645,
+ "latency_std_ms": 1.9049199649634072,
+ "latency_median_ms": 6.393600022420287,
+ "latency_p95_ms": 11.014474992407486,
+ "latency_min_ms": 5.840199999511242,
+ "latency_max_ms": 14.414100034628063,
+ "plates_per_s": 130.68873260579818,
+ "load_s": 1.9735603999579325,
+ "peak_vram_mb": 471
+}

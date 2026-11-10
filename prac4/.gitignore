@@ -1,0 +1,17 @@
+data/
+weights/
+coco/
+coco_subset/
+RT-DETR/
+RT-DETRv4/
+DEIMv2/
+EdgeCrafter/
+rf_detr_finetuned_mobile_ui/
+*.pth
+*.pt
+*.onnx
+*.mp4
+*.MP4
+results/preds_*.json
+runs/plates/test/preds_*.json
+!results/video/*.mp4

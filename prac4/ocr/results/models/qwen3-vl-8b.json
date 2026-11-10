@@ -1,0 +1,18 @@
+{
+ "model": "qwen3-vl-8b",
+ "n_plates": 3196,
+ "n_illegible": 1285,
+ "accuracy": 0.7434292866082604,
+ "cer": 0.13719530365337623,
+ "format_valid": 0.8216520650813517,
+ "invented_rate": 0.049805447470817124,
+ "latency_mean_ms": 601.267257226866,
+ "latency_std_ms": 88.64418074064578,
+ "latency_median_ms": 596.2662999518216,
+ "latency_p95_ms": 619.4240499899024,
+ "latency_min_ms": 238.7748999753967,
+ "latency_max_ms": 2894.7554000187665,
+ "plates_per_s": 1.6631539269444817,
+ "load_s": 5.708076900045853,
+ "peak_vram_mb": 10722
+}

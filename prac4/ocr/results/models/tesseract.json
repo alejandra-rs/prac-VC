@@ -1,0 +1,18 @@
+{
+ "model": "tesseract",
+ "n_plates": 3196,
+ "n_illegible": 1285,
+ "accuracy": 0.10607008760951189,
+ "cer": 0.5285252398831873,
+ "format_valid": 0.13360450563204004,
+ "invented_rate": 0.011673151750972763,
+ "latency_mean_ms": 78.86182478104091,
+ "latency_std_ms": 29.38655802630411,
+ "latency_median_ms": 71.75334999919869,
+ "latency_p95_ms": 108.15837497648317,
+ "latency_min_ms": 65.13479998102412,
+ "latency_max_ms": 811.2181999604218,
+ "plates_per_s": 12.680406556359687,
+ "load_s": 1.2999516911804676e-06,
+ "peak_vram_mb": 232
+}

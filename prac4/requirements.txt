@@ -1,0 +1,40 @@
+# Dependencias de los cuadernos y del paquete common/ (probado con Python 3.11.18 en Windows 11, RTX 5080).
+#
+# PyTorch NO se instala desde aquí: la RTX 5080 (Blackwell) necesita CUDA >= 12.8. Instálalo antes con
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+# (probado: torch 2.14.1+cu130, torchvision 0.29.1+cu130).
+
+ultralytics>=8.4.200
+lap>=0.5.12  # lo necesita el ByteTrack de Ultralytics (prac4.ipynb y tracking.ipynb)
+faster-coco-eval>=1.6.5
+tensorboard
+gdown
+opencv-contrib-python==4.10.0.84  # el único OpenCV del entorno: con opencv-python instalado a la vez se rompe cv2 (ver al final)
+pillow
+numpy
+pandas
+matplotlib
+PyYAML
+tqdm
+ipykernel
+ipywidgets
+
+# Requisitos del repositorio RT-DETRv4 (train.py)
+scipy
+calflops
+transformers
+
+# Comparativa de OCR (ocr_module3_comparative.ipynb); además hay que instalar el programa Tesseract y tenerlo en el PATH
+pytesseract
+ollama
+num2words
+psutil
+paddleocr
+# PaddlePaddle con GPU, con el mismo CUDA 13.0 que torch (no se instala desde PyPI):
+#   pip install paddlepaddle-gpu==3.4.0 --index-url https://www.paddlepaddle.org.cn/packages/stable/cu130/ --extra-index-url https://pypi.org/simple --index-strategy unsafe-best-match
+# Paddle y torch traen una copia de cuDNN con los mismos nombres de DLL y no pueden convivir en un proceso con versiones distintas.
+# Paddle instala cuDNN 9.15.1.9 y torch 2.14.1 trae la 9.24.0.43, por lo que se iguala la de Paddle (probado: funciona):
+#   pip install nvidia-cudnn-cu13==9.24.0.43
+# Hay que importar torch ANTES que paddle/paddleocr (al revés, falla al cargar las DLL).
+# Si ultralytics instala opencv-python a la vez que opencv-contrib-python, desinstalar ambos y reinstalar solo el contrib:
+#   pip uninstall opencv-python opencv-contrib-python && pip install opencv-contrib-python==4.10.0.84

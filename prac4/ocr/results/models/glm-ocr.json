@@ -1,0 +1,18 @@
+{
+ "model": "glm-ocr",
+ "n_plates": 3196,
+ "n_illegible": 1285,
+ "accuracy": 0.6079474342928661,
+ "cer": 0.18198529411764705,
+ "format_valid": 0.6564455569461827,
+ "invented_rate": 0.0715953307392996,
+ "latency_mean_ms": 98.43762518727097,
+ "latency_std_ms": 91.6112003003963,
+ "latency_median_ms": 86.02450002217665,
+ "latency_p95_ms": 128.03567499213386,
+ "latency_min_ms": 66.81649998063222,
+ "latency_max_ms": 2326.043299981393,
+ "plates_per_s": 10.158717239445458,
+ "load_s": 2.881459399999585,
+ "peak_vram_mb": 3674
+}
