@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from .paths import DATA
+from ..experiment import DATA
 
 FOLDER = DATA / "wider_face"
 URL = "https://huggingface.co/datasets/CUHK-CSE/wider_face/resolve/main/data/"

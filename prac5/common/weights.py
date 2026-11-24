@@ -1,6 +1,6 @@
 import urllib.request
 
-from .paths import WEIGHTS
+from .experiment import WEIGHTS
 
 COURSE = "https://raw.githubusercontent.com/otsedom/otsedom.github.io/main/VC/P5/"
 MEDIAPIPE = "https://storage.googleapis.com/mediapipe-models/"

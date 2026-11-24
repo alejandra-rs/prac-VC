@@ -1,0 +1,30 @@
+seed: 42
+n_folds: 5
+batch_size: 128
+
+train:
+  epochs: 50
+  warmup_epochs: 3
+  weight_decay: 0.05
+  label_smoothing: 0.1
+  patience: 8
+
+resnet:
+  img_size: 112
+  dropout: 0.2
+  lr_body: 3.0e-4
+  lr_head: 3.0e-3
+  freeze_epochs: 2
+
+deepface:
+  lr: 3.0e-4
+
+classical:
+  pca_variance: 0.9
+  grid_c: [1, 10, 100]
+  grid_gamma: [0.3, 1, 3]
+  tuning_samples: 10000
+
+timing:
+  iters: 200
+  warmup: 20

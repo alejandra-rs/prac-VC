@@ -1,11 +1,5 @@
-# Dependencias de los cuadernos y del paquete common/ (probado con Python 3.11.18 en Windows 11, RTX 5080).
-#
-# PyTorch NO se instala desde aquí: la RTX 5080 (Blackwell) necesita CUDA >= 12.8. Instálalo antes con
-#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
-# (probado: torch 2.14.1+cu130, torchvision 0.29.1+cu130).
-
 ultralytics>=8.4.200
-lap>=0.5.12  # lo necesita el ByteTrack de Ultralytics (prac4.ipynb y tracking.ipynb)
+lap>=0.5.12
 faster-coco-eval>=1.6.5
 tensorboard
 gdown

@@ -1,0 +1,55 @@
+seed: 42
+videos_dir: ../data/uta_rldd/original
+
+compress:
+  max_fps: 20
+  max_short_side: 720
+  crf: 28
+  preset: veryfast
+  workers: 4
+  duration_tolerance: 1.0
+
+extraction:
+  workers: 8
+
+windows:
+  fps: 20
+  seconds: 30
+  step: 10
+  sweep: [10, 30, 60, 120, null]
+  max_no_face: 0.5
+
+calibration:
+  seconds: 60
+  open_percentile: 90
+  default_open_ear: 0.3
+
+events:
+  closed_fraction: 0.7
+  min_blink_frames: 2
+  long_blink: 0.4
+  yawn_mar: 0.5
+  yawn_seconds: 1.5
+  nod_degrees: 10
+
+gru:
+  hidden: 64
+  layers: 2
+  dropout: 0.3
+  lr: 1.0e-3
+  weight_decay: 1.0e-2
+  epochs: 40
+  warmup_epochs: 2
+  patience: 6
+  batch_size: 64
+  video_batch_size: 16
+
+classical:
+  rule_quantiles: 20
+  svm: {svc__C: [0.1, 1, 10, 100], svc__gamma: [0.01, 0.1, 1, 10]}
+  random_forest: {min_samples_leaf: [1, 5, 20]}
+  boosting: {learning_rate: [0.03, 0.1], max_leaf_nodes: [7, 31]}
+
+timing:
+  iters: 200
+  warmup: 20

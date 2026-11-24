@@ -1,8 +1,22 @@
 import importlib.metadata
 import json
 import platform
+import time
 
+import numpy as np
 import psutil
+
+
+def measure_latency(fn, iters, warmup, sync=None):
+    times = []
+    for i in range(warmup + iters):
+        start = time.perf_counter()
+        fn()
+        if sync:
+            sync()
+        if i >= warmup:
+            times.append(1000 * (time.perf_counter() - start))
+    return {"mean_ms": np.mean(times), "p95_ms": np.percentile(times, 95)}
 
 
 def package_version(name):

@@ -1,16 +1,14 @@
-import os
-
-os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3")
-os.environ.setdefault("GLOG_minloglevel", "3")
-os.environ.setdefault("DEEPFACE_BACKEND_ENGINE", "onnx")
-
 import cv2
 import mediapipe as mp
 import numpy as np
 from mtcnn import MTCNN
 from retinaface import RetinaFace
 
-from .models import get_model, model_bytes
+from ..weights import get_model, model_bytes
+
+
+def middle(a, b):
+    return ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
 
 
 class Face:
@@ -23,10 +21,6 @@ class Face:
     @property
     def width(self):
         return self.box[2] - self.box[0]
-
-
-def middle(a, b):
-    return ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
 
 
 class FaceDetector:
