@@ -1,5 +1,5 @@
 seed: 42
-videos_dir: ../data/uta_rldd/original
+videos_dir: ../data/uta_rldd
 
 compress:
   max_fps: 20

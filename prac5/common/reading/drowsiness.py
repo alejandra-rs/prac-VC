@@ -9,7 +9,7 @@ from ..experiment import ROOT, WEIGHTS, load_config
 
 CFG = load_config(ROOT / "drowsiness_detection" / "drowsiness.yaml")
 MODEL = "random_forest"
-CALIBRATION_S = 40
+CALIBRATION_S = 40  # más corto que en el entrenamiento (60 s) para que la demostración empiece antes
 STEP_S = 10
 WINDOWS = (30, 60, 120)
 

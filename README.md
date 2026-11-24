@@ -31,9 +31,9 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
 ### Progreso General
 
 <div align="center">
-  <img src="https://api.barbuilder.dev/percentage/57?color=4c71ff" alt="Progress">
+  <img src="https://api.barbuilder.dev/percentage/83?color=4c71ff" alt="Progress">
 
-  **57% completado** (4/7 prácticas)
+  **83% completado** (5/6 prácticas)
 
   <br>
 
@@ -43,9 +43,8 @@ Tras la realización de estas prácticas, se busca adquirir conocimientos sobre 
   | **Práctica 2** | Procesamiento de imágenes | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 2](./prac2) |
   | **Práctica 3** | Detección, segmentación, caracterización | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 3](./prac3) |
   | **Práctica 4** | Detección y lectura de caracteres con aprendizaje profundo | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 4](./prac4) |
-  | **Práctica 5** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
-  | **Práctica 6** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
-  | **Práctica 7** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
+  | **Práctica 5** | Detección y caracterización de rasgos faciales | ![Completada](https://img.shields.io/badge/Estado-Completada-brightgreen?style=flat-square) | [Ver Práctica 5](./prac5) |
+  | **Trabajo Final** | - | ![Pendiente](https://img.shields.io/badge/Estado-Pendiente-orange?style=flat-square) | - |
 </div>
 
 ## Autoría - Reconocimiento

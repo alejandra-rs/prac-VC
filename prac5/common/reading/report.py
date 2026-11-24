@@ -13,11 +13,12 @@ def minutes(axis):
     axis.xaxis.set_major_formatter(plt.FuncFormatter(lambda s, _: f"{int(s // 60)}:{int(s % 60):02d}"))
 
 
-def plot_drowsiness(ax, states):
+def plot_drowsiness(ax, states, duration):
     full = CALIBRATION_S + WINDOWS[-1]
     ax.text(CALIBRATION_S / 2, 0.03, "calibrando", ha="center", color="0.45", fontsize=9)
-    ax.axvline(full, color="0.6", ls="--", lw=1)
-    ax.text(full + 2, 1.0, f"ventana completa ({WINDOWS[-1]} s)", color="0.45", fontsize=9, va="top")
+    if full < duration:
+        ax.axvline(full, color="0.6", ls="--", lw=1)
+        ax.text(full + 2, 1.0, f"ventana completa ({WINDOWS[-1]} s)", color="0.45", fontsize=9, va="top")
     for state, color in STATE_COLORS.items():
         if len(states):
             ax.plot(states.index, states[state], color=color, lw=2.2, marker="o", ms=3)
@@ -44,7 +45,7 @@ def plot_report(states, shares, duration):
     for axis in (ax, ax_e):
         axis.axvspan(0, CALIBRATION_S, color="0.93", lw=0)
         axis.spines[["top", "right"]].set_visible(False)
-    plot_drowsiness(ax, states)
+    plot_drowsiness(ax, states, duration)
     plot_emotions(ax_e, shares, duration)
     minutes(ax_e)
     fig.tight_layout()

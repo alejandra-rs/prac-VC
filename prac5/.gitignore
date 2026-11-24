@@ -3,4 +3,3 @@ weights/
 results/face_detectors/dets/
 *.mp4
 *.part
-runs/
