@@ -29,6 +29,8 @@ La resolución de ambas tareas a realizar se encuentra en [`prac5.ipynb`](prac5.
 
 ## Tarea A: Estado de ánimo durante una lectura
 
+![Tarea A](./doc/tareaA.gif)
+
 En esta tarea se implementa una herramienta que podrían utilizar, por ejemplo, un profesor o un ponente para saber en qué momentos pierden la atención de su público. En ella, se reproduce el capítulo 1 del **Quijote** mientras se analiza a quien lo escucha. Se estudian dos aspectos:
 
 - **Somnolencia:** si la persona está alerta, poco atenta o somnolienta.
@@ -71,7 +73,6 @@ Cada vídeo se divide en ventanas de tamaño fijo sobre las que se calculan las 
 La evaluación se realiza con 5-fold, utilizando los _folds_ del conjunto. Se calcula la F1-macro por ventana y por vídeo.
 
 #### Resultados
-
 
 <p align=center>
 <img src="./results/drowsiness/duracion_ventana.png" width="100%" alt="F1-macro según la duración de la ventana">
@@ -167,6 +168,8 @@ La implementación se encuentra en [`common/reading/`](common/reading):
 
 ## Tarea B: _Ceci n'est pas une pipe_
 
+![Tarea B](./doc/tareaA.gif)
+
 La inspiración para esta segunda tarea es la composición _La trahison des images_ (1929), en la que Magritte pinta la _representación_ de una pipa. En esta tarea ([`prac5.ipynb`](prac5.ipynb), sección 3), se realiza un filtro en el que se puede fumar la pipa de Magritte:
 
 - La pipa flota en la imagen. Se puede coger pinzándola y moverla hacia donde se desee. Mientras se sujeta, la boquilla apunta a la boca.
@@ -194,10 +197,11 @@ Puesto que en esta tarea se necesita un detector facial, en [`face_detectors.ipy
 | RetinaFace | 0.974 | 0.964 | 0.97 | 0.979 | 0.950 | 0.964 | 577.8 | sí |
 
 <p align=center>
-<img src="./results/face_detectors/pr_curves.png" width="60%" alt="Curvas precision-recall">
+<img src="./results/face_detectors/pr_curves.png" width=42% alt="Curvas precision-recall">
+<img src="./results/face_detectors/cost.png" width=51% alt="Curvas precision-recall">
 </p>
 
-<p align=center><i>Curvas precision-recall de cada detector.</i></p>
+<p align=center><i>Curvas precision-recall y coste de cada detector.</i></p>
 
 Se elige **YuNet**, con su umbral ajustado en 0.77. Este detector es el que obtiene los mejores resultados cumpliendo los requisitos necesarios para su uso en la demostración. Se puede ejecutar en tiempo real (8.8ms) y devuelve la posición de la boca.
 
