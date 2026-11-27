@@ -30,6 +30,7 @@ La resolución de ambas tareas a realizar se encuentra en [`prac5.ipynb`](prac5.
 ## Tarea A: Estado de ánimo durante una lectura
 
 ![Tarea A](./doc/tareaA.gif)
+<p align=center><i>Resultado de la tarea A (vídeo + informe). Se muestran distintos fragmentos de una lectura, con reconocimiento de emociones y evolución de la somnolencia. a mitad y al final de la lectura. En la figura, la línea roja marca el instante del vídeo sobre el informe.</i></p>
 
 En esta tarea se implementa una herramienta que podrían utilizar, por ejemplo, un profesor o un ponente para saber en qué momentos pierden la atención de su público. En ella, se reproduce el capítulo 1 del **Quijote** mientras se analiza a quien lo escucha. Se estudian dos aspectos:
 
@@ -43,6 +44,10 @@ En esta tarea se implementa una herramienta que podrían utilizar, por ejemplo, 
 Se usa [UTA-RLDD](https://sites.google.com/view/utarldd/home) (_Real-Life Drowsiness Dataset_). En este _dataset_, 60 participantes graban y anotan vídeos de ellos mismos en distintos estados de atención. El propio conjunto viene dividido en 5 _folds_ por participante, que se usan para la validación cruzada.
 
 En [`drowsiness_extraction.ipynb`](drowsiness_detection/drowsiness_extraction.ipynb) se preparan los datos:
+
+![Preparación de los datos](./doc/pipelines/pipeline_datos.svg)
+<p align=center><i>Pipeline de preparación de los datos.</i></p>
+
 
 1. **Reducción de los vídeos:** compresión, reducción de los FPS y de la resolución, para ocupar menos espacio.
 2. **_Features_ por fotograma:** se extraen 12 características con el `FaceLandmarker` de MediaPipe para trabajar más cómodamente sobre los vídeos. Entre las _features_ extraídas, se encuentran el _Eye Aspect Ratio_ (EAR) de cada ojo y el _Mouth Aspect Ratio_ (MAR). Además de facilitar la manipulación de los datos, también ayuda a la compresión de la información, resumiéndose en unos 100 MB.
@@ -58,6 +63,18 @@ Por ejemplo, este es el análisis del EAR de un participante en sus 3 estados. S
 #### Entrenamiento
 
 Tras preprocesar los datos, estos se pueden utilizar para entrenar un modelo de detección de cansancio. En [`drowsiness_training.ipynb`](drowsiness_detection/drowsiness_training.ipynb) se analizan 5 modelos para este propósito:
+
+<table>
+<tr>
+<td width="25%" align=center><i>Pipeline de entrenamiento de los métodos clásicos.</i></td>
+<td width="75%" align=center><img src="./doc/pipelines/entrenamiento_clasicos.svg" alt="Pipeline de entrenamiento de los modelos clásicos"></td>
+</tr>
+<tr>
+<td width="25%" align=center><i>Pipeline de entrenamiento de la GRU.</i></td>
+<td width="75%" align=center><img src="./doc/pipelines/entrenamiento_gru.svg" alt="Pipeline de entrenamiento de la GRU"></td>
+</tr>
+</table>
+
 
 - **Reglas:** umbrales sobre una sola _feature_. Concretamente, sobre las referentes a la apertura de los ojos, pues son las que proporcionan mejores resultados.
 - **Métodos clásicos - SVM RBF, Random Forest y Gradient Boosting**, sobre las 12 _features_ de la ventana y con búsqueda de hiperparámetros (`GridSearchCV`).
@@ -152,6 +169,10 @@ Se elige **ResNet-18 entrenada con FER+**, pues, nuevamente, es la que mejores r
 
 Con los modelos ya analizados y escogidos, se puede realizar la demostración combinando los distintos componentes. 
 
+![Demostración Inferencia Somnolencia](./doc/pipelines/inferencia_clasico.svg)
+<p align=center><i>Inferencia del nivel de somnolencia en la demostración.</i></p>
+
+
 La lectura se encuentra pregrabada en [`assets/lectura.mp3`](assets/lectura.mp3) junto con un CSV en el que se registran sus frases ([`assets/lectura.csv`](assets/lectura.csv)), para poder seguir la lectura mientras se realiza la demostración ([`prac5.ipynb`](prac5.ipynb), sección 2). Mientras suena, se siguen las siguientes etapas:
 
 - **Calibración** (primeros 40 s): para ajustar los cálculos del _Eye Aspect Ratio_, se mide la apertura de los ojos y la postura de la cabeza de la persona.
@@ -168,7 +189,8 @@ La implementación se encuentra en [`common/reading/`](common/reading):
 
 ## Tarea B: _Ceci n'est pas une pipe_
 
-![Tarea B](./doc/tareaA.gif)
+![Tarea B](./doc/tareaB.gif)
+<p align=center><i>Resultado de la tarea B. Se muestra el filtro (izquierda) y los landmarks utilizados (derecha).</i></p>
 
 La inspiración para esta segunda tarea es la composición _La trahison des images_ (1929), en la que Magritte pinta la _representación_ de una pipa. En esta tarea ([`prac5.ipynb`](prac5.ipynb), sección 3), se realiza un filtro en el que se puede fumar la pipa de Magritte:
 
@@ -210,6 +232,8 @@ Se elige **YuNet**, con su umbral ajustado en 0.77. Este detector es el que obti
 Para los detectores de manos y _landmarks_, se ha decidido utilizar los incluidos en MediaPipe (`HandLandmarker` y `FaceLandmarker`), por su buen _trade-off_ entre resultados y tiempo de ejecución (incluso en CPU).
 
 La pipa es una imagen PNG con transparencia, recortada sobre el cuadro original ([`assets/pipe.png`](assets/pipe.png)). Sobre esta imagen, también se han determinado puntos característicos (boquilla, cazoleta), en [`assets/pipe.json`](assets/pipe.json). Si se quisiera utilizar otra imagen, basta con cambiar estos dos ficheros.
+
+![Pipa con landmarks](./doc/pipe.png)
 
 La implementación de las distintas partes del filtro se encuentra en [`common/pipe/`](common/pipe):
 
@@ -329,5 +353,4 @@ Todas las métricas se han obtenido sobre el mismo dispositivo:
 - [_La trahison des images_ - René Magritte (LACMA)](https://collections.lacma.org/node/239578)
 - [Geometric Image Transformations (`cv2.warpAffine`) - OpenCV](https://docs.opencv.org/4.x/da/d54/group__imgproc__transform.html)
 
-### Inteligencia artificial
-
+_Uso de inteligencia artificial: se ha usado Claude para agilizar la evaluación de distintos modelos y para la generación de figuras explicativas._
