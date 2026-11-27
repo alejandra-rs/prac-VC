@@ -29,8 +29,11 @@ La resolución de ambas tareas a realizar se encuentra en [`prac5.ipynb`](prac5.
 
 ## Tarea A: Estado de ánimo durante una lectura
 
-![Tarea A](./doc/tareaA.gif)
-<p align=center><i>Resultado de la tarea A (vídeo + informe). Se muestran distintos fragmentos de una lectura, con reconocimiento de emociones y evolución de la somnolencia. a mitad y al final de la lectura. En la figura, la línea roja marca el instante del vídeo sobre el informe.</i></p>
+<p align=center>
+<img src="./doc/tareaA.gif" alt="Tarea A">
+</p>
+<p align=center>
+<i>Resultado de la tarea A (vídeo + informe). Se muestran distintos fragmentos de una lectura, con reconocimiento de emociones y evolución de la somnolencia. En la figura, la línea roja marca el instante del vídeo sobre el informe.</i></p>
 
 En esta tarea se implementa una herramienta que podrían utilizar, por ejemplo, un profesor o un ponente para saber en qué momentos pierden la atención de su público. En ella, se reproduce el capítulo 1 del **Quijote** mientras se analiza a quien lo escucha. Se estudian dos aspectos:
 
@@ -45,7 +48,9 @@ Se usa [UTA-RLDD](https://sites.google.com/view/utarldd/home) (_Real-Life Drowsi
 
 En [`drowsiness_extraction.ipynb`](drowsiness_detection/drowsiness_extraction.ipynb) se preparan los datos:
 
-![Preparación de los datos](./doc/pipelines/pipeline_datos.svg)
+<p align=center>
+<img src="./doc/pipelines/pipeline_datos.svg" alt="Preparación de los datos">
+</p>
 <p align=center><i>Pipeline de preparación de los datos.</i></p>
 
 
@@ -169,7 +174,9 @@ Se elige **ResNet-18 entrenada con FER+**, pues, nuevamente, es la que mejores r
 
 Con los modelos ya analizados y escogidos, se puede realizar la demostración combinando los distintos componentes. 
 
-![Demostración Inferencia Somnolencia](./doc/pipelines/inferencia_clasico.svg)
+<p align=center>
+<img src="./doc/pipelines/inferencia_clasico.svg" alt="Demostración Inferencia Somnolencia">
+</p>
 <p align=center><i>Inferencia del nivel de somnolencia en la demostración.</i></p>
 
 
@@ -189,7 +196,9 @@ La implementación se encuentra en [`common/reading/`](common/reading):
 
 ## Tarea B: _Ceci n'est pas une pipe_
 
-![Tarea B](./doc/tareaB.gif)
+<p align=center>
+<img src="./doc/tareaB.gif" alt="Tarea B">
+</p>
 <p align=center><i>Resultado de la tarea B. Se muestra el filtro (izquierda) y los landmarks utilizados (derecha).</i></p>
 
 La inspiración para esta segunda tarea es la composición _La trahison des images_ (1929), en la que Magritte pinta la _representación_ de una pipa. En esta tarea ([`prac5.ipynb`](prac5.ipynb), sección 3), se realiza un filtro en el que se puede fumar la pipa de Magritte:
@@ -233,7 +242,9 @@ Para los detectores de manos y _landmarks_, se ha decidido utilizar los incluido
 
 La pipa es una imagen PNG con transparencia, recortada sobre el cuadro original ([`assets/pipe.png`](assets/pipe.png)). Sobre esta imagen, también se han determinado puntos característicos (boquilla, cazoleta), en [`assets/pipe.json`](assets/pipe.json). Si se quisiera utilizar otra imagen, basta con cambiar estos dos ficheros.
 
-![Pipa con landmarks](./doc/pipe.png)
+<p align=center>
+<img src="./doc/pipe.png" alt="Pipa con landmarks">
+</p>
 
 La implementación de las distintas partes del filtro se encuentra en [`common/pipe/`](common/pipe):
 
